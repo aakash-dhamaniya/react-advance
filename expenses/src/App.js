@@ -24,6 +24,10 @@ const App = () => {
       LocationOfExpenditure: "mayur vihar",
     },
   ];
+  function getData(data) {
+    expense.push(data);
+    console.log(expense);
+  }
   // let arr=[];
   // for(let i=0;i<expense.length;i++){
   //   arr[i]=<div>
@@ -37,7 +41,7 @@ const App = () => {
   // }
   return (
     <div>
-      <NewExpense></NewExpense>
+      <NewExpense newData={getData}></NewExpense>
       <Expenses items={expense} />
     </div>
   );

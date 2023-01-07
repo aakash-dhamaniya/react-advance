@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import "./ExpenseForm.css";
 import Button from "../../Button";
 import Expenses from "../Expenses";
-export default function ExpenseForm() {
+export default function ExpenseForm(props) {
   const [enteredtitle, setEnteredtitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
-  let key = 5;
 
   const titleChangeHandler = (e) => {
     setEnteredtitle(e.target.value);
@@ -20,27 +19,34 @@ export default function ExpenseForm() {
   function newItem(e) {
     e.preventDefault();
     const object = {
-      id: key,
       title: enteredtitle,
       amount: enteredAmount,
       date: new Date(enteredDate),
       LocationOfExpenditure: "Delhi",
     };
-    key++;
-    console.log(object);
-    // <Expenses items={object}></Expenses>
+
+    props.onSaveExpenseData(object);
+    setEnteredAmount("");
+    setEnteredDate("");
+    setEnteredtitle("");
   }
   return (
     <form onSubmit={newItem}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label htmlFor="">Title</label>
-          <input type="text" onChange={titleChangeHandler} name="title" />
+          <input
+            type="text"
+            value={enteredtitle}
+            onChange={titleChangeHandler}
+            name="title"
+          />
         </div>
         <div className="new-expense__control">
           <label htmlFor="">Amount</label>
           <input
             type="number"
+            value={enteredAmount}
             min="0.01"
             step="0.1"
             onChange={amuntChangeHandler}
@@ -51,6 +57,7 @@ export default function ExpenseForm() {
           <label htmlFor="">Date</label>
           <input
             type="date"
+            value={enteredDate}
             min="2022-11-1"
             max="2023-12-31"
             onChange={dateChangeHandler}
