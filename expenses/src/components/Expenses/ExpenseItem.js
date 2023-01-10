@@ -9,17 +9,19 @@ const ExpenseItem = (props) => {
     setAmount("100$");
   };
   return (
-    <Card className="expense-item">
-      <ExpenseDate date={props.date} />
-      <div className="expense-item_description">
-        <h2>{props.title}</h2>
-        <div className="location"> {props.location}</div>
-        <div className="expense-item_price">{amount}</div>
-        <div className="edit_button">
-          <Button onClick={changeMoney} text={"$"} />
+    <li>
+      <Card className="expense-item">
+        <ExpenseDate date={props.date} />
+        <div className="expense-item_description">
+          <h2>{props.title}</h2>
+          <div className="location"> {props.location}</div>
+          <div className="expense-item_price">{amount}</div>
+          <div className="edit_button">
+            <Button onClick={changeMoney} text={"$"} />
+          </div>
         </div>
-      </div>
-    </Card>
+      </Card>
+    </li>
   );
 };
 export default ExpenseItem;
