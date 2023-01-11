@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./ExpenseForm.css";
 import Button from "../../Button";
-import Expenses from "../Expenses";
+// import Expenses from "../Expenses";
 export default function ExpenseForm(props) {
   const [enteredtitle, setEnteredtitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
@@ -29,6 +29,7 @@ export default function ExpenseForm(props) {
     setEnteredAmount("");
     setEnteredDate("");
     setEnteredtitle("");
+    props.changeState(false);
   }
   return (
     <form onSubmit={newItem}>
@@ -40,6 +41,7 @@ export default function ExpenseForm(props) {
             value={enteredtitle}
             onChange={titleChangeHandler}
             name="title"
+            required
           />
         </div>
         <div className="new-expense__control">
@@ -66,6 +68,11 @@ export default function ExpenseForm(props) {
         </div>
       </div>
       <div className="new-expense__actions">
+        <Button
+          onClick={props.changeState}
+          type="button"
+          text={"Cancel"}
+        ></Button>
         <Button type="submit" text={"Add Expense"}></Button>
       </div>
     </form>
