@@ -8,6 +8,15 @@ function Mealitem(props) {
         <div className={classes.description}>{props.description}</div>
         <div className={classes.price}>{props.price}</div>
       </div>
+      <div className={classes.form}>
+        <span>Amount</span>
+        <span>
+          <input type="number" />
+        </span>
+        <div className="classes.button">
+          <button>+Add</button>
+        </div>
+      </div>
     </li>
   );
 }
