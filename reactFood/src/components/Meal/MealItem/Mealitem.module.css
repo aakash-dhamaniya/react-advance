@@ -20,29 +20,3 @@
   color: #ad5502;
   font-size: 1.25rem;
 }
-.form {
-  width: 20%;
-  font-weight: bold;
-  font-size: 20px;
-  padding: 0.5rem;
-}
-.form input {
-  width: 30%;
-  height: 45;
-  margin-left: 1rem;
-}
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-.form button {
-  background-color: red;
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 15px;
-  width: 100px;
-  height: 30px;
-  margin-left: 2rem;
-  margin-top: 0.5rem;
-}
