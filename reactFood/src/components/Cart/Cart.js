@@ -12,19 +12,21 @@ function Cart(props) {
           price: 12.99,
         },
       ].map((item) => {
-        return <li>{item.name}</li>;
+        return <li key={item.id}>{item.name}</li>;
       })}
     </ul>
   );
   return (
-    <Modal>
+    <Modal onClose={props.onClose}>
       {carItem}
       <div className={classes.total}>
         <span>Total Amount</span>
         <span>350</span>
       </div>
       <div className={classes.actions}>
-        <button className={classes["button--alt"]}>Close</button>
+        <button className={classes["button--alt"]} onClick={props.onClose}>
+          Close
+        </button>
         <button className={classes.button}>Order</button>
       </div>
     </Modal>
