@@ -7,6 +7,7 @@
   z-index: 20;
   background-color: rgba(0, 0, 0, 0.75);
 }
+
 .modal {
   position: fixed;
   top: 20vh;
@@ -19,12 +20,14 @@
   z-index: 30;
   animation: slide-down 300ms ease-out forwards;
 }
-@media (min-width: 786px) {
+
+@media (min-width: 768px) {
   .modal {
     width: 40rem;
     left: calc(50% - 20rem);
   }
 }
+
 @keyframes slide-down {
   from {
     opacity: 0;
