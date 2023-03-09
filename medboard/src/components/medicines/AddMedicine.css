@@ -1,0 +1,32 @@
+.form {
+  margin-top: 5%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+.form button {
+  cursor: pointer;
+  font: inherit;
+  border: none;
+  background-color: #4d1601;
+  color: white;
+  padding: 0.75rem 3rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 25px;
+  font-weight: bold;
+}
+.form button:hover,
+.button:active {
+  background-color: #2c0d00;
+}
+.form input {
+  height: 24px;
+  font-size: 24px;
+}
+.number {
+  width: 70px;
+}
