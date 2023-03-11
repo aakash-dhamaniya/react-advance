@@ -1,0 +1,21 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  background-color: aqua;
+}
+.brand-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+
+  margin-left: 17rem;
+}
+.icons {
+  display: flex;
+  align-items: center;
+  margin-right: 10rem;
+  width: 30%;
+  padding: 1rem;
+  justify-content: space-evenly;
+}

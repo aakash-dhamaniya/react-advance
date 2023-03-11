@@ -1,0 +1,11 @@
+.store {
+  display: flex;
+  justify-content: center;
+}
+.productContainer {
+  display: flex;
+  width: 78;
+  padding: 20px;
+  margin: 1rem;
+  flex-wrap: wrap;
+}

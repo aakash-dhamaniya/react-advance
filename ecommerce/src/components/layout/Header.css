@@ -1,0 +1,12 @@
+.header-top-strip {
+  background-color: var(--color-131921);
+}
+.tabs {
+  color: var(--white) !important;
+}
+/* .dropdown {
+  display: flex;
+  justify-content: center;
+  margin-left: 40%;
+  border: 1px solid red;
+} */
