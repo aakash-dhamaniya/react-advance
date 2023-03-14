@@ -35,7 +35,6 @@ function AvailableProducts() {
       image={item.imageUrl}
     />
   ));
-  console.log(producst);
   return (
     <div className="store">
       <div className="productContainer">{producst}</div>

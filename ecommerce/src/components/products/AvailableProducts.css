@@ -4,7 +4,8 @@
 }
 .productContainer {
   display: flex;
-  width: 78;
+  justify-content: center;
+  width: 100%;
   padding: 20px;
   margin: 1rem;
   flex-wrap: wrap;

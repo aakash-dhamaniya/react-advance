@@ -1,0 +1,45 @@
+.image-title {
+  display: flex;
+  align-items: center;
+}
+.title {
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+#img {
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+#img img {
+  width: 50px;
+}
+.tdprice {
+  padding: 1rem;
+}
+.priceValue {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+.quan-rem {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  margin-top: 13px;
+}
+.quantity input {
+  width: 45px;
+  text-align: center;
+}
+.rem {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+}
