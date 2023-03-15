@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Header.css";
 import {
   Container,
@@ -12,8 +12,13 @@ import {
 import { Link, NavLink } from "react-router-dom";
 import Cart from "../cart/Cart";
 import { FaShoppingCart } from "react-icons/fa";
+import CartContext from "../../store/cart-context";
 
 function Header() {
+  const cartCtx = useContext(CartContext);
+  const numberOfCartItem = cartCtx.items.reduce((curNumber, item) => {
+    return curNumber + item.quantity;
+  }, 0);
   return (
     <div>
       <Navbar bg="dark" variant="dark" style={{ height: "80px" }}>
@@ -30,7 +35,7 @@ function Header() {
                   color="white"
                   fontSize={"25px"}
                 ></FaShoppingCart>
-                <Badge color="white">5</Badge>
+                <Badge color="white">{numberOfCartItem}</Badge>
               </Dropdown.Toggle>
               <Dropdown.Menu style={{ minWidth: 370 }}>
                 <Cart></Cart>

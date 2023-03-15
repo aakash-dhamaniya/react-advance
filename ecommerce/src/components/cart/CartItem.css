@@ -16,6 +16,9 @@
   justify-content: center;
   padding: 1rem;
 }
+#img {
+  width: 50px;
+}
 #img img {
   width: 50px;
 }

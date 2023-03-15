@@ -5,9 +5,10 @@ import Layout from "./components/layout/Layout";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Store from "./pages/Store";
+import CartProvider from "./store/CartProvider";
 function App() {
   return (
-    <>
+    <CartProvider>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
@@ -17,7 +18,7 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
-    </>
+    </CartProvider>
   );
 }
 

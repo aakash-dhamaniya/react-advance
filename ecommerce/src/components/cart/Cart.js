@@ -1,39 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../cart/Cart.css";
 import { Button, Col, Container, Row, Table } from "react-bootstrap";
 import CartItem from "./CartItem";
-const productsArr = [
-  {
-    title: "Colors",
-    price: 100,
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
-  },
-
-  {
-    title: "Black and white Colors",
-    price: 50,
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
-  },
-
-  {
-    title: "Yellow and Black Colors",
-    price: 70,
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
-  },
-
-  {
-    title: "Blue Color",
-    price: 100,
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
-  },
-];
+import CartContext from "../../store/cart-context";
 function Cart() {
-  const producst = productsArr.map((item, key) => (
+  const ctx = useContext(CartContext);
+  const TotalAmount = ctx.totalAmount;
+  const producst = ctx.items.map((item) => (
     <CartItem
-      key={key}
+      key={item.id}
+      id={item.id}
       title={item.title}
       price={item.price}
-      image={item.imageUrl}
+      image={item.image}
+      quantity={item.quantity}
     />
   ));
   return (
@@ -56,7 +36,8 @@ function Cart() {
             <tbody>{producst}</tbody>
           </Table>
           <div>
-            <span>Total</span> <span>$27.98</span>
+            {" "}
+            <span>Total</span> <span>${TotalAmount}</span>{" "}
           </div>
           <div>
             <Button>PURCHESE</Button>
