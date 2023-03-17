@@ -1,0 +1,16 @@
+.about {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.image-text img {
+  width: 300px;
+  float: left;
+  clip-path: circle();
+}
+.image-text {
+  margin: 100px auto;
+  width: 50%;
+  padding: 8px;
+}

@@ -1,0 +1,56 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.albumText {
+  border: 1px solid rgb(102, 198, 167);
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 41%;
+}
+.playIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Tours {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 40px;
+  margin-top: 50px;
+}
+
+.list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.listGroup {
+  display: flex;
+  width: 53%;
+}
+.listGroupItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+}
+.discription {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+}

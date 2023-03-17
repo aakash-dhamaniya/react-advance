@@ -24,10 +24,10 @@ function Header() {
       <Navbar bg="dark" variant="dark" style={{ height: "80px" }}>
         <Container>
           <Navbar.Brand>
-            <Link to={"/"}>Best4U </Link>
+            <NavLink to={"/"}>Best4U </NavLink>
           </Navbar.Brand>
-          <Link to={"store"}>Store</Link>
-          <Link to={"about"}>About</Link>
+          <NavLink to={"store"}>Store</NavLink>
+          <NavLink to={"about"}>About</NavLink>
           <Nav>
             <Dropdown align="end">
               <Dropdown.Toggle variant="success">
