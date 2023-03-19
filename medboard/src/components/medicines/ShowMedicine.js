@@ -2,20 +2,15 @@ import React, { useContext, useState } from "react";
 import MediContext from "../../store/medicine-context";
 import MedicineItems from "./MedicineItems";
 import "./ShowMedicine.css";
-const ShowMedicine = () => {
-  const medCnt = useContext(MediContext);
-  const localstorage = localStorage;
-  const localStoragekey = Object.keys(localstorage);
-  const MediItems = localStoragekey.map((key) => {
-    const detailsString = localstorage[key];
-    const detailsobj = JSON.parse(detailsString);
+const ShowMedicine = ({ medicines }) => {
+  const mediItems = medicines.map((item) => {
     return (
       <MedicineItems
-        key={detailsobj.name}
-        name={detailsobj.name}
-        description={detailsobj.description}
-        price={detailsobj.price}
-        quantity={detailsobj.quantity}
+        key={item.medicine}
+        name={item.medicine}
+        description={item.description}
+        price={item.price}
+        quantity={item.quantity}
       />
     );
   });
@@ -29,7 +24,8 @@ const ShowMedicine = () => {
           <th>Price</th>
           <th>Quantity</th>
         </tr>
-        {MediItems}
+        {medicines.length < 1 && <div> no data found</div>}
+        {mediItems}
       </table>
     </div>
   );
