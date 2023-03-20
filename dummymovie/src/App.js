@@ -5,35 +5,16 @@ import "./App.css";
 
 function App() {
   const [movies, setMovies] = useState([]);
-  // const dummyMovies = [
-  //   {
-  //     id: 1,
-  //     title: "Some Dummy Movie",
-  //     openingText: "This is the opening text of the movie",
-  //     releaseDate: "2021-05-18",
-  //   },
-  //   {
-  //     id: 2,
-  //     title: "Some Dummy Movie 2",
-  //     openingText: "This is the second opening text of the movie",
-  //     releaseDate: "2021-05-19",
-  //   },
-  // ];
-  //  async function fetchMoviesHandler() {
-  //     fetch("https://swapi.dev/api/films/")
-  //       .then((response) => {
-  //         return response.json();
-  //       })
-  //       .then((data) => {
-  //         setMovies(data.results);
-  //       });
-  //   }
+  const [isloader, setisLoader] = useState(false);
+  const [loading, setloding] = useState();
   async function fetchMoviesHandler() {
+    setloding(<h1>Loading</h1>);
     const res = await fetch("https://swapi.dev/api/films/");
     const data = await res.json();
 
     console.log(data.results);
     setMovies(data.results);
+    setisLoader(movies);
   }
   return (
     <React.Fragment>
@@ -41,7 +22,8 @@ function App() {
         <button onClick={fetchMoviesHandler}>Fetch Movies</button>
       </section>
       <section>
-        <MoviesList movies={movies} />
+        {!isloader && loading}
+        {isloader && <MoviesList movies={movies} />}
       </section>
     </React.Fragment>
   );
