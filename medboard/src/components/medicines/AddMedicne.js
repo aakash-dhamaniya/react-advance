@@ -1,8 +1,9 @@
 import React from "react";
 import "./AddMedicine.css";
 import MedicineForm from "./MedicineForm";
-function AddMedicne(props) {
-  return <MedicineForm onShowUpdate={props.onShowUpdate} />;
+import ShowMedicine from "./ShowMedicine";
+function AddMedicne() {
+  return <MedicineForm />;
 }
 
 export default AddMedicne;
