@@ -7,8 +7,16 @@ export default function ExpenseForm(props) {
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
 
+  // const [userInput, setUserInput] = useState({
+  //   enteredtitle: "",
+  //   enteredAmount: "",
+  //   enteredDate: "",
+  // });
   const titleChangeHandler = (e) => {
     setEnteredtitle(e.target.value);
+    // userInput((prev) => {
+    //   return { ...prev, enteredtitle: e.target.value };
+    // });
   };
   const amuntChangeHandler = (e) => {
     setEnteredAmount(e.target.value);
@@ -20,7 +28,7 @@ export default function ExpenseForm(props) {
     e.preventDefault();
     const object = {
       title: enteredtitle,
-      amount: enteredAmount,
+      amount: +enteredAmount,
       date: new Date(enteredDate),
       LocationOfExpenditure: "Delhi",
     };

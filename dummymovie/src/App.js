@@ -1,79 +1,71 @@
-import React, { useCallback, useEffect, useState } from "react";
-import MoviesList from "./components/MoviesList";
-import "./App.css";
-let retrying = null;
-var arr = [];
+import React, { useState, useEffect, useCallback } from 'react';
+
+import MoviesList from './components/MoviesList';
+import AddMovie from './components/AddMovie';
+import './App.css';
+
 function App() {
   const [movies, setMovies] = useState([]);
-  const [isloader, setisLoader] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [isCancel, setisCancel] = useState(true);
+
   const fetchMoviesHandler = useCallback(async () => {
+    setIsLoading(true);
     setError(null);
-    setisLoader(true);
-    setMovies([]);
     try {
-      const res = await fetch("https://swapi.dev/api/films/");
-      if (!res.ok) {
-        throw new Error("Somthing went wrong ...Retrying");
+      const response = await fetch('https://swapi.dev/api/films/');
+      if (!response.ok) {
+        throw new Error('Something went wrong!');
       }
-      const data = await res.json();
-      setMovies(data.results);
-    } catch (e) {
-      setError(e.message);
-      if (isCancel) {
-        retrying = setInterval(fetchMoviesHandler, 5000);
-        arr.push(retrying);
-      }
+
+      const data = await response.json();
+
+      const transformedMovies = data.results.map((movieData) => {
+        return {
+          id: movieData.episode_id,
+          title: movieData.title,
+          openingText: movieData.opening_crawl,
+          releaseDate: movieData.release_date,
+        };
+      });
+      setMovies(transformedMovies);
+    } catch (error) {
+      setError(error.message);
     }
-    setisLoader(false);
+    setIsLoading(false);
   }, []);
+
   useEffect(() => {
     fetchMoviesHandler();
   }, [fetchMoviesHandler]);
-  function cancleRetryingHanldler() {
-    setisCancel(false);
-    console.log(retrying);
-    arr.map((a) => {
-      console.log(a);
-      clearInterval(a);
-      arr = [];
-    });
-    clearInterval(retrying);
-    setError(null);
-    setisCancel(true);
+
+  function addMovieHandler(movie) {
+    console.log(movie);
   }
-  let content = "no data found";
-  if (isloader) {
-    content = <h1>Loading...</h1>;
-  }
+
+  let content = <p>Found no movies.</p>;
+
   if (movies.length > 0) {
     content = <MoviesList movies={movies} />;
   }
+
   if (error) {
-    content = (
-      <div>
-        <p>{error}</p> <button onClick={cancleRetryingHanldler}>Cancel</button>
-      </div>
-    );
+    content = <p>{error}</p>;
   }
+
+  if (isLoading) {
+    content = <p>Loading...</p>;
+  }
+
   return (
     <React.Fragment>
       <section>
-        <button onClick={fetchMoviesHandler}>Fetch Movies</button>
+        <AddMovie onAddMovie={addMovieHandler} />
       </section>
       <section>
-        {/* {isloader && <h1>Loading...</h1>}
-        {!isloader && movies.length > 0 && <MoviesList movies={movies} />}
-        {!isloader && movies.length === 0 && <h1>Found no movies</h1>}
-        {!isloader && error && (
-          <div>
-            <p>{error}</p>{" "}
-            <button onClick={cancleRetryingHanldler}>Cancel</button>
-          </div>
-        )} */}
-        {content}
+        <button onClick={fetchMoviesHandler}>Fetch Movies</button>
       </section>
+      <section>{content}</section>
     </React.Fragment>
   );
 }

@@ -2,8 +2,8 @@ import React, { useContext, useState } from "react";
 import MediContext from "../../store/medicine-context";
 import MedicineItems from "./MedicineItems";
 import "./ShowMedicine.css";
-const ShowMedicine = ({ medicines }) => {
-  const mediItems = medicines.map((item) => {
+const ShowMedicine = (props) => {
+  const mediItems = props.medicines.map((item) => {
     return (
       <MedicineItems
         key={item.medicine}
@@ -11,6 +11,7 @@ const ShowMedicine = ({ medicines }) => {
         description={item.description}
         price={item.price}
         quantity={item.quantity}
+        onShowUpdate={props.onShowUpdate}
       />
     );
   });
@@ -24,7 +25,7 @@ const ShowMedicine = ({ medicines }) => {
           <th>Price</th>
           <th>Quantity</th>
         </tr>
-        {medicines.length < 1 && <div> no data found</div>}
+        {props.medicines.length < 1 && <div> no data found</div>}
         {mediItems}
       </table>
     </div>

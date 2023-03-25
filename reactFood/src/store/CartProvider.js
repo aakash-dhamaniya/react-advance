@@ -32,8 +32,8 @@ const cartReducer = (state, action) => {
       totalAmount: updatedAmount,
     };
   }
-  if (action.type === "REM") {
-    const existingCartItemIndex = state.items.findIndex(
+  if (action.type === "REM") { //for removing item and decreasing quantity
+    const existingCartItemIndex = state.items.findIndex( //checking allready avalable item
       (item) => item.id === action.id
     );
 
@@ -42,8 +42,8 @@ const cartReducer = (state, action) => {
     const updatedTotalAmount = state.totalAmount - existingCartItem.price;
 
     let updatedItems;
-    if (existingCartItem.amount === 1) {
-      updatedItems = state.items.filter((item) => item.id !== action.id);
+    if (existingCartItem.amount === 1) { //if amount is 1 by clicking on - it will remove that item from cart
+      updatedItems = state.items.filter((item) => item.id !== action.id); // it will store all the items except that matched id
     } else {
       const updatedItem = {
         ...existingCartItem,

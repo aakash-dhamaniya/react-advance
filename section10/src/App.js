@@ -11,10 +11,7 @@ function App() {
     if (storedUserLoggedINInformation === "1") {
       setIsLoggedIn(true);
     }
-    if (storedUserLoggedINInformation === "0") {
-      setIsLoggedIn(false);
-    }
-  }, [isLoggedIn]);
+  }, []);
   const loginHandler = (email, password) => {
     // We should of course check email and password
     // But it's just a dummy/ demo anyways

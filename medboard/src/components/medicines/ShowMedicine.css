@@ -2,15 +2,19 @@
   --width: 22%;
 }
 .items {
-  border: 1px solid black;
   margin: 1rem auto;
   width: 75%;
   height: 600px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  padding: 1rem;
 }
 .table {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 table tr {
   width: 100%;
@@ -28,4 +32,29 @@ td {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.add-update {
+  margin: 0.5rem;
+  padding: 2px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 7rem;
+}
+.add-update button {
+  cursor: pointer;
+  font-size: 15px;
+  border: none;
+  background-color: #4d1601;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 25px;
+  font-weight: bold;
+  padding: 5px;
+}
+button:hover,
+button:active {
+  background-color: #2c0d00;
 }

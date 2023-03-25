@@ -7,7 +7,7 @@ function App() {
   const [usersList, setUsersList] = useState([]);
 
   const addUserHandler = (uName, uAge, cname) => {
-    console.log(cname);
+    
     setUsersList((prevUsersList) => {
       return [
         ...prevUsersList,
